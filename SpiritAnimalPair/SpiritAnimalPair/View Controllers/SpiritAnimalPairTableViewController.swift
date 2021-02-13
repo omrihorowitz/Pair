@@ -8,7 +8,7 @@ import UIKit
 
 class SpiritAnimalPairTableViewController: UITableViewController {
 
-    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         PairController.shared.fetchMultiPeople()
@@ -16,6 +16,7 @@ class SpiritAnimalPairTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //MARK: - Actions
     @IBAction func addSomebodyButtonTapped(_ sender: Any) {
         
     let alertController = UIAlertController(title: "Add a homie or an animal!", message: "Add someone new to pair up", preferredStyle: .alert)
@@ -38,11 +39,12 @@ class SpiritAnimalPairTableViewController: UITableViewController {
         present(alertController, animated: true)
     }
     
-    
     @IBAction func randomButtonTapped(_ sender: Any) {
         PairController.shared.randomize()
         tableView.reloadData()
     }
+    
+//MARK: - Table View Methods
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return PairController.shared.pairedPeople.count
@@ -71,5 +73,3 @@ class SpiritAnimalPairTableViewController: UITableViewController {
         }
     }
 }
-    
-

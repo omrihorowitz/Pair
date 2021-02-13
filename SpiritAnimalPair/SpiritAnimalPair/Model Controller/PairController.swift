@@ -9,11 +9,11 @@ import CoreData
 
 class PairController {
 
+    //MARK: - Properties
     static var shared = PairController()
     
     var multiPeople: [Person] = []
     var pairedPeople: [[Person]] = []
-    //space for spirit animal if have time (also core data and convenience etc)
     
     private lazy var fetchRequest: NSFetchRequest<Person> = {
         let request = NSFetchRequest<Person>(entityName: "Person")
@@ -21,6 +21,7 @@ class PairController {
          return request
      }()
 
+    //MARK: - Functions
     func fetchMultiPeople() {
         self.multiPeople = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
     }
